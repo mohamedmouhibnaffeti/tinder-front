@@ -1,0 +1,11 @@
+{
+    "match": "Matchs",
+    "msg": "Messages",
+    "app_title":"Tinder|Site de Rencontre",
+    "language": "Langue",
+    "startmatching": "Commencer à Matcher",
+    "textmatch":"Vos Matchs apparaîtront ici. Pour en obtenir, commencez à liker les profils des autres utilisateurs. C'est aussi ici que vous pourrez directement leur écrire, quand vous serez prêt(e) à vous lancer!",
+    "sayhello":"Dites Bonjour!",
+    "textmsg":"Vous souhaitez engager la conversation? Lorsque vous matchez avec d'autres utilisateurs, vous pouvez leur envoyer un message sous 'Matchs' "
+   
+  }

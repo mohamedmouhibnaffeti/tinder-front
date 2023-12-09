@@ -1,0 +1,5 @@
+export { default as About } from "./About"
+export { default as Contact } from "./Contact"
+export { default as Faq } from "./FAQ"
+export { default as Policy } from "./Policy"
+export { default as Security } from "./Security"

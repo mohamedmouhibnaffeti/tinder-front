@@ -1,0 +1,287 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.redml {
+    background-color: brown;
+}
+
+.pink-glassmorphism {
+  background: rgba(230, 3, 82, 0.55) ;
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 14.5px );
+-webkit-backdrop-filter: blur( 14.5px );
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.tinder-font{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.landing-bg{
+    background-image: url('./Components/Images/bg_landing.jpg');
+    background-repeat: no-repeat;
+}
+
+.landing-text{
+    text-shadow:
+   -1px -1px 0 #711b62,  
+    1px -1px 0 #711b62,
+    -1px 1px 0 #711b62,
+     1px 1px 0 #711b62;
+}
+
+.signup-btn {
+    padding: 0.7em 1.5em;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #E91E63;
+    transition: all 1000ms;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+  }
+  
+  .signup-btn:hover {
+    color: #ffffff;
+    transform: scale(1.03);
+    outline: none;
+    box-shadow: 4px 5px 17px -4px #E91E63;
+  }
+  
+  .signup-btn::before {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: #E91E63;
+    opacity: 0.7;
+    transform: skewX(45deg);
+    z-index: -1;
+    transition: width 1000ms;
+  }
+  
+  .signup-btn:hover::before {
+    width: 250%;
+  }
+
+.login-btn-bg{
+  background: linear-gradient(to right, #fc8181, #f687b3);
+}
+
+.loader {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 3px solid #E91E63;
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+    
+
+.ProfileNavbar{
+  background: rgba( 255, 255, 255, 0.2 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 13px );
+  -webkit-backdrop-filter: blur( 13px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.redml {
+  background-color: brown;
+}
+
+
+.violet-sidebar{
+  background-color: #E91E63;
+}
+
+.shadow1{
+  box-shadow: rgba(230, 16, 151, 0.4) 5px 5px, rgba(128, 9, 84, 0.3) 10px 10px, rgba(59, 6, 40, 0.2) 15px 15px, rgba(74, 10, 50, 0.1) 20px 20px, rgba(0, 0, 0, 0.05) 25px 25px;
+}
+.paragrapheLimite {
+  width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.paragrapheLimite1 {
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.slider {
+  height: 10px;
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.slider .thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: #007bff;
+  cursor: grab;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.slider .thumb.active {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: rgb(198, 73, 198);
+  width: 30px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  padding-top: 12px;
+  margin: 0px;
+  margin-top: 10px;
+}
+
+.custom-inpt {
+  padding: 10px !important;
+}
+
+.btn-dark{
+  background: rgba( 255, 255, 255, 0.3 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 7.5px );
+  -webkit-backdrop-filter: blur( 7.5px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+.btn-light{
+  background: rgba( 0, 0, 0, 0.35 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 9px );
+  -webkit-backdrop-filter: blur( 9px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+}
+.card {
+  position: relative;
+  width:30rem;
+  margin-bottom: 130px;
+  height: 75vh;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 20px 60px 0px rgba(0, 0, 0, 0.3);
+}
+
+.info{
+  position: absolute;
+  display: flex;
+  font-size: 1rem;
+  bottom: 200px;
+  right: 50px;
+}
+.info-user1 {
+  display: flex;
+  gap: 9px;
+  position: absolute;
+  font-size: 2rem;
+  bottom: 200px;
+  margin-left: 20px;
+ 
+}
+.info-user2 {
+  position: absolute;
+  bottom: 170px;
+  font-size: 1rem;
+  gap: 9px;
+  display: flex;
+  margin-left: 20px;
+}
+.info-user3 {
+  position: absolute;
+  bottom: 150px;
+  font-size: 1rem;
+  gap: 9px;
+  display: flex;
+  margin-left: 20px;
+}
+.card-container {
+  display: flex;
+  justify-content: center;
+  height: 90vh;
+  width: 30rem;
+  align-items: center;
+  border-radius: 20px;
+  background-color: #000000;
+}
+
+.swipe {
+  position: absolute;
+}
+
+.swipe__Button {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  margin-top: 700px;
+  width: 100%;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.swipe__Button .MuiIconButton-root{
+  background-color: black;
+  box-shadow: 0px 10px 53px 0px rgba(0, 0, 0, 0.3) !important;
+ 
+}
+
+.swipeButton__left {
+  padding: 40px !important;
+  width: 5px;
+  height: 5px;
+  color: #ec5e6f !important;
+  border: 2px solid #ec5e6f !important;
+}
+.swipeButton__star {
+  padding: 40px !important;
+  width: 5px;
+  height: 5px;
+  color: #62b4f9 !important;
+  border: 2px solid #62b4f9 !important;
+}
+.swipeButton__right {
+  padding: 40px !important;
+  width: 5px;
+  height: 5px;
+  color: #76e2b3 !important;
+  border: 2px solid #76e2b3 !important;
+
+}
+
+.active1{
+  position: absolute;
+  display: flex;
+  gap: 5px;
+  font-size: 1rem;
+  bottom: 250px;
+  font-weight: bold;
+  margin-left: 20px;
+}

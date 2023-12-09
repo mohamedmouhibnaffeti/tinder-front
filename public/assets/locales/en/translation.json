@@ -1,0 +1,10 @@
+{
+    "match": "Matches",
+    "msg": "Messages",
+   "app_title":"Tinder",
+   "language": "Language",
+   "startmatching": "Start Matching",
+   "textmatch":"Matches will appear her once you start to Like people.You can message them directly from here when you're ready to spark up the conversation.",
+   "sayhello":"Say Hello!",
+   "textmsg":"Looking to strike up a conversation? When you match with others, you can send them a message under 'Matches'"
+  }
