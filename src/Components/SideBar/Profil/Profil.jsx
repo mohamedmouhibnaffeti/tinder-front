@@ -18,7 +18,7 @@ const Profil = () => {
       const phone = profile.phone
       const LookingFor = profile.showme
       return (
-      <div className="bg-black min-h-fit">
+      <div className="bg-gray-200 dark:bg-black min-h-fit">
             {/***************Réglages*******************/}
                   <Reglages email={email} phone={phone} setOpen={setEmailOpen} />
             {/***************Reglages et découverte ************/}
@@ -37,7 +37,7 @@ const Profil = () => {
             {/************* Tinder version *******************/}
             <List className="justify-content-center items-center "  style={{ transform: "translateY(510px)" }}>
                         <FaFire className='w-8 h-8 ' style={{color:"#660099"}}/>
-                        <span className='mt-3 text-white cursor-default'>Version 4.44.0</span>
+                        <span className='mt-3 dark:text-white text-gray-900 cursor-default'>Version 4.44.0</span>
                   </List>
 
             {/*************** Supprimer mon compte *******************/}

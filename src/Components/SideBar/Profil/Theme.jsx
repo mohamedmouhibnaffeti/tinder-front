@@ -1,28 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { List, ListItem, Checkbox, ListItemSuffix } from "@material-tailwind/react";
 import { Divider } from '@mui/material';
+import { ThemeContext } from '../../../Context/ThemeContext';
 
 export default function Theme() {
-  const [checked, setChecked] = useState(0);
-  const [theme, setTheme] = useState(null);
-
-  useEffect(() => {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark');
-      setChecked(2);
-    } else {
-      setTheme('light');
-      setChecked(1);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
+  const { checked, setChecked, setTheme } = useContext(ThemeContext)
 
   const handleToggle = (index) => () => {
     setChecked(index);
@@ -37,11 +19,11 @@ export default function Theme() {
 
   return (
     <div>
-      <div className='cursor-default text-white opacity-50 font-bold ml-4 ' style={{ transform: "translateY(330px)" }}>Appearance</div>
-      <div className="  mx-2 w-96 bg-[rgb(20,20,28)] " style={{ transform: "translateY(330px)" }}>
-        <List className='text-white mt-9 '>
+      <div className='cursor-default dark:text-white text-gray-900 opacity-70 font-bold ml-4 ' style={{ transform: "translateY(330px)" }}>Appearance</div>
+      <div className="  mx-2 w-96 bg-gray-300 dark:bg-[rgb(20,20,28)] " style={{ transform: "translateY(330px)" }}>
+        <List className='dark:text-white text-gray-900 mt-9 '>
           <a href="#" className="text-initial flex ">
-            <ListItem className=' cursor-default hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-white active:text-white focus:text-white'>
+            <ListItem className=' cursor-default hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-gray-900 focus:text-gray-900 active:text-gray-900 dark:hover:text-white dark:focus:text-white dark:active:text-white'>
               <span>Use System Setting</span>
               <ListItemSuffix>
                 <Checkbox color="pink" checked={checked === 0} onChange={handleToggle(0)} />
@@ -51,7 +33,7 @@ export default function Theme() {
           <Divider color="#757575" className='w-90' />
 
           <a href="#" className="text-initial flex">
-            <ListItem className='cursor-default  hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-white active:text-white focus:text-white'>
+            <ListItem className='cursor-default  hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-gray-900 focus:text-gray-900 active:text-gray-900 dark:hover:text-white dark:focus:text-white dark:active:text-white'>
               <span style={{ whiteSpace: 'nowrap' }}>Light Mode</span>
               <ListItemSuffix>
                 <Checkbox color="pink" checked={checked === 1} onChange={handleToggle(1)} />
@@ -60,7 +42,7 @@ export default function Theme() {
           </a>
           <Divider color="#757575" className='w-90' />
           <a href="#" className="text-initial flex">
-            <ListItem className='cursor-default  hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-white active:text-white focus:text-white'>
+            <ListItem className='cursor-default  hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-gray-900 focus:text-gray-900 active:text-gray-900 dark:hover:text-white dark:focus:text-white dark:active:text-white'>
               <span style={{ whiteSpace: 'nowrap' }}>Dark Mode</span>
               <ListItemSuffix>
                 <Checkbox color="pink" checked={checked === 2} onChange={handleToggle(2)} />

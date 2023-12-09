@@ -58,9 +58,9 @@ function Phone() {
   };
     return (
         <div>
-            <div className='cursor-default text-white opacity-50 font-bold ml-4  translate-y-10'> Phone Number</div>
-            <div className="mx-2 w-96 bg-[rgb(20,20,28)] transform translate-y-10">
-                <List className='text-white mt-9 '>
+            <div className='cursor-default text-gray-900 dark:text-white opacity-70 font-bold ml-4  translate-y-10'> Phone Number</div>
+            <div className="mx-2 w-96 bg-gray-300 dark:bg-[rgb(20,20,28)] transform translate-y-10">
+                <List className='text-gray-900 dark:text-white mt-9 '>
                     <ListItem className=' h-10 ml-4 ' disabled>
                         <span  style={{ whiteSpace: 'nowrap' }} >{phone ? phone : "None"}</span>
                         <TiTick style={{ marginLeft: 'auto' }} color='#660099' size={"24px"}/>
@@ -68,7 +68,7 @@ function Phone() {
                 </List>
             
             </div>
-                <p className='ml-4 text-white opacity-75 mt-16'>
+                <p className='ml-4 text-gray-900 dark:text-white opacity-75 mt-16'>
                     Verified phone number
                 </p>
                 <div className="flex flex-col items-center justify-center mt-10">

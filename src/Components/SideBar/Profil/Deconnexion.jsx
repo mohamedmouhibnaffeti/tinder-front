@@ -13,10 +13,10 @@ export default function Deconnexion() {
 }
   return (
     <div>
-    <div className="mx-2 w-96 bg-[rgb(20,20,28)] " style={{ transform: "translateY(470px)" }}>
-    <List className='text-white  justify-content-center items-center' onClick={Logout}>
+    <div className="mx-2 w-96 bg-gray-300 dark:bg-[rgb(20,20,28)] " style={{ transform: "translateY(470px)" }}>
+    <List className='text-gray-900 dark:text-white  justify-content-center items-center' onClick={Logout}>
           <a href="#">
-            <ListItem className=' hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-white'>
+            <ListItem className=' hover:bg-inherit active:bg-inherit focus:bg-inherit dark:hover:text-white hover:text-gray-900'>
                 <span  >Logout</span>
             </ListItem>
           </a>

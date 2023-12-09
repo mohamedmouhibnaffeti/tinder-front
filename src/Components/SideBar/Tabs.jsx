@@ -125,10 +125,10 @@ const TabsSideBar = () => {
                       <div>
                         <iframe src="https://lottie.host/embed/cb938baf-01e7-4649-ac44-062630fb66cb/Z8DkbPVGaF.json" className="w-96 h-64"></iframe>
                         <div className='cursor-default	mt-10 justify-content-center items-center text-center'>
-                          <h1 className="text-white text-2xl font-bold ">
+                          <h1 className="text-gray-900 dark:text-white text-2xl font-bold ">
                            {t('sayhello')} 
                           </h1>
-                          <p className="text-white opacity-75  font-light mt-3">
+                          <p className="text-gray-900 dark:text-white opacity-75  font-light mt-3">
                            {t('textmsg')} 
                           </p>
                         </div>

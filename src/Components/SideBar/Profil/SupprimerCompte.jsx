@@ -17,10 +17,10 @@ export default function SupprimerCompte() {
   return (
    <div>
     
-    <div className="mx-2 w-96 bg-[rgb(20,20,28)] " style={{ transform: "translateY(550px)" }} >
-                  <List className='text-white  justify-content-center items-center cursor-pointer ' onClick={()=>deleteUser({email})} >
+    <div className="mx-2 w-96 dark:bg-[rgb(20,20,28)] bg-gray-300 " style={{ transform: "translateY(550px)" }} >
+                  <List className='dark:text-white text-gray-900 justify-content-center items-center cursor-pointer ' onClick={()=>deleteUser({email})} >
                      <a href="#">
-                        <ListItem className=' hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-white text-center'>
+                        <ListItem className=' hover:bg-inherit active:bg-inherit focus:bg-inherit dark:hover:text-white hover:text-gray-900 text-center'>
                           <span  style={{ whiteSpace: 'nowrap' }} >Delete Account </span>
                         </ListItem>
                       </a>

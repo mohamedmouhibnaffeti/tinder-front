@@ -67,13 +67,13 @@ const TabsSideBar = () => {
             "bg-transparent ",
         }}>
         
-                 <Tab  key={"match"} value={"value"} className={`text-white text-lg ml-5 ${isMatch} underline-offset-8 decoration-4 decoration-pink-500 mt-5`} onClick={setMatchesEnabled}>
+                 <Tab  key={"match"} value={"value"} className={`text-gray-900 dark:text-white text-lg ml-5 ${isMatch} underline-offset-8 decoration-4 decoration-pink-500 mt-5`} onClick={setMatchesEnabled}>
                      <div  >
                        {t('My Blocks')} 
                     </div>
                    
                  </Tab>
-                 <Tab  key={"msg"} value={"value1"} className={` text-white text-lg ml-5 ${isMessage} underline-offset-8 decoration-4 decoration-pink-500 mt-5`} onClick={setMessagesEnabled}>
+                 <Tab  key={"msg"} value={"value1"} className={` text-gray-900 dark:text-white text-lg ml-5 ${isMessage} underline-offset-8 decoration-4 decoration-pink-500 mt-5`} onClick={setMessagesEnabled}>
                      <div>
                        {t('Block User')} 
                       </div>
@@ -86,10 +86,10 @@ const TabsSideBar = () => {
                     <div className={`h-52 w-32  bg-gradient-to-tr from-red-400 to-pink-500 rounded-lg shadow1 ${isRotated} ? 'rotate-[30deg]' : '' `}>
                     </div>
                     <div className='cursor-default mt-10 justify-content-center items-center text-center'>
-                      <h1 className=" text-white text-2xl font-bold">
+                      <h1 className=" text-gray-900 dark:text-white text-2xl font-bold">
                          {t('startmatching')} 
                       </h1>
-                       <p className="text-white opacity-75 font-light mt-3">
+                       <p className="text-gray-900 dark:text-white opacity-75 font-light mt-3">
                        {t('textmatch')} 
                        </p>
                     </div>
@@ -105,9 +105,9 @@ const TabsSideBar = () => {
                    </TabPanel>
 
                  <TabPanel key={"msg"} value={"value1"}>
-                 <List className='text-white mt-9 gap-6 '>
-                        <input type="text" className="bg-gray-800 rounded-md py-2" value={targetEmail} onChange={(e)=>setTargetEmail(e.target.value)} placeholder='Insert user email...' />
-                        <button className="bg-pink-800/90 py-2 rounded-lg font-semibold text-lg hover:bg-pink-800/80" onClick={()=>Block({ targetEmail, email })}> Block </button>
+                 <List className='text-gray-900 dark:text-white mt-9 gap-6 '>
+                        <input type="text" className="bg-gray-200 border-2 border-gray-400 outline-1 outline-gray-600 dark:text-gray-400  text-gray-200 dark:bg-gray-800 rounded-md py-2" value={targetEmail} onChange={(e)=>setTargetEmail(e.target.value)} placeholder='Insert user email...' />
+                        <button className="bg-pink-400 dark:bg-pink-800/90 py-2 rounded-lg transition delay-150 ease-in-out font-semibold text-lg hover:bg-pink-400/90 dark:hover:bg-pink-800/80 dark:text-black text-white" onClick={()=>Block({ targetEmail, email })}> Block </button>
                 </List>
                 {res?.status === 202 
                 ? 

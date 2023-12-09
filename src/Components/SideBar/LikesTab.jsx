@@ -66,13 +66,13 @@ const TabsSideBar = () => {
             "bg-transparent ",
         }}>
         
-                 <Tab  key={"match"} value={"value"} className={`text-white text-lg ml-5 ${isMatch} underline-offset-8 decoration-4 decoration-pink-500 mt-5`} onClick={setMatchesEnabled}>
+                 <Tab  key={"match"} value={"value"} className={`text-gray-900 dark:text-white text-lg ml-5 ${isMatch} underline-offset-8 decoration-4 decoration-pink-500 mt-5`} onClick={setMatchesEnabled}>
                      <div  >
                        {t('Who Liked Me')} 
                     </div>
                    
                  </Tab>
-                 <Tab  key={"msg"} value={"value1"} className={` text-white text-lg ml-5 ${isMessage} underline-offset-8 decoration-4 decoration-pink-500 mt-5`} onClick={setMessagesEnabled}>
+                 <Tab  key={"msg"} value={"value1"} className={` text-gray-900 dark:text-white text-lg ml-5 ${isMessage} underline-offset-8 decoration-4 decoration-pink-500 mt-5`} onClick={setMessagesEnabled}>
                      <div>
                        {t('My Likes')} 
                       </div>
@@ -85,10 +85,10 @@ const TabsSideBar = () => {
                     <div className={`h-52 w-32  bg-gradient-to-tr from-red-400 to-pink-500 rounded-lg shadow1 ${isRotated} ? 'rotate-[30deg]' : '' `}>
                     </div>
                     <div className='cursor-default mt-10 justify-content-center items-center text-center'>
-                      <h1 className=" text-white text-2xl font-bold">
+                      <h1 className=" text-gray-900 dark:text-white text-2xl font-bold">
                          {t('startmatching')} 
                       </h1>
-                       <p className="text-white opacity-75 font-light mt-3">
+                       <p className="text-gray-900 dark:text-white opacity-75 font-light mt-3">
                        {t('textmatch')} 
                        </p>
                     </div>
@@ -108,10 +108,10 @@ const TabsSideBar = () => {
                     <div className={`h-52 w-32  bg-gradient-to-tr from-red-400 to-pink-500 rounded-lg shadow1 ${isRotated} ? 'rotate-[30deg]' : '' `}>
                     </div>
                     <div className='cursor-default mt-10 justify-content-center items-center text-center'>
-                      <h1 className=" text-white text-2xl font-bold">
+                      <h1 className=" text-gray-900 dark:text-white text-2xl font-bold">
                          {t('startmatching')} 
                       </h1>
-                       <p className="text-white opacity-75 font-light mt-3">
+                       <p className="text-gray-900 dark:text-white opacity-75 font-light mt-3">
                        {t('textmatch')} 
                        </p>
                     </div>

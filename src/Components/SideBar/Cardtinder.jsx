@@ -167,7 +167,7 @@ function Cardtinder() {
 
   return (
     <div>
-      <div className='self-center shadow-md mr-96 shadow-pink-500/50 card-container rounded-t-xl'>
+      <div className='self-center shadow-md mr-[4rem] shadow-pink-500/50 card-container rounded-t-xl'>
         {db.map((profile, index) => (
           <TinderCard
             ref={childRefs[index]}
