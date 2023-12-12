@@ -68,7 +68,7 @@ function Language() {
   };
     return (
       
-     <div className="container mx-auto p-4 -ml-3 translate-y-[3.5px]">
+     <div className="container mx-auto p-4 -ml-3 translate-y-[3.5px] transition delay-150  hover:-translate-y-1 hover:translate-x-[1px] hover:scale-110 duration-300">
       <div className="flex  items-center">
         <div className="relative group">
           <button
@@ -77,7 +77,7 @@ function Language() {
               document.getElementById('languageDropdown').classList.toggle('hidden');
             }}
           >
-            <FaGlobe size={"26"} color="#660099" className="cursor-pointer transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110  duration-300" />
+            <FaGlobe size={"26"} color="#660099" />
 
           </button>
           <ul

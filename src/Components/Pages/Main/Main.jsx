@@ -2,12 +2,11 @@ import React, { useEffect, useContext, useState, useRef } from "react"
 import { isAuthenticated } from "../../API/AuthApi"
 import { CookieContext } from "../../../Context/CookieContext"
 import { useNavigate } from "react-router-dom"
+import FileBase from "react-file-base64"
+import SideBar from "../../SideBar/SideBar"
 import { ConversationContext, ConversationProvider } from "../../../Context/ConversationContext"
 import Conversation from "../../SideBar/Conversation"
 import { io } from "socket.io-client"
-import Cardtinder from "../../SideBar/Cardtinder"
-import { SidebarProvider } from "../../../Context/SideBarContext"
-import Sidebar from "../../SideBar/SideBar"
 
 export default function MainTinder(){
     const { open, setOpen, chatID } = useContext(ConversationContext)
@@ -52,19 +51,31 @@ export default function MainTinder(){
             setReceiverMessage(data)
         })
     }, [])
-    
+    const options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0,
+      };
+      
+      function success(pos) {
+        const crd = pos.coords;
+      
+        console.log("Your current position is:");
+        console.log(`Latitude : ${crd.latitude}`);
+        console.log(`Longitude: ${crd.longitude}`);
+        console.log(`More or less ${crd.accuracy} meters.`);
+      }
+      
+      function error(err) {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+      }
+    const location = navigator.geolocation.getCurrentPosition(success, error, options)
+    console.log(location)
     
     return(
-        <SidebarProvider>
-        <div className="flex w-screen fixed flex-row overflow-y-hidden">
-            
-                <Sidebar/>
-            
-            {!open && <main className="flex items-center justify-center w-full h-screen overflow-x-hidden dark:bg-black bg-gray-200 ">
-                <Cardtinder/>
-            </main>}
+        <div className="flex flex-row overflow-y-hidden">
+            <SideBar />
             { open && <Conversation setOpen={setOpen} setSendMessage={setSendMessage} receiveMessage={receiveMessage} sendMessage={sendMessage} setReceiveMessage={setReceiverMessage} /> }
         </div>
-        </SidebarProvider>
     )
 }

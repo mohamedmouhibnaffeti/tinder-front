@@ -1,47 +1,30 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import { List, ListItem} from "@material-tailwind/react";
-import { SidebarContext } from '../../../Context/SideBarContext';
+
 import { Divider } from '@mui/material';
 
-export default function Reglages({ email, phone }) {
-  const { setTinderComponentOpen, setProfileComponentOpen, setPreferredLanguageOpen, setEmailOpen, setLikesTabOpen, setPhoneOpen } = useContext(SidebarContext)
-  const handleLikesClick = () => {
-    setPreferredLanguageOpen(false)
-    setProfileComponentOpen(false)
-    setTinderComponentOpen(false)
-    setLikesTabOpen(false)
-    setEmailOpen(true)
-  }
-  const handlePhoneClick = () => {
-    setPreferredLanguageOpen(false)
-    setProfileComponentOpen(false)
-    setTinderComponentOpen(false)
-    setLikesTabOpen(false)
-    setEmailOpen(false)
-    setPhoneOpen(true)
-  }
-  const phoneNumber = phone ? phone : "None"
+export default function Reglages() {
   return (
     <div>
-    <div className='ml-4 font-bold text-gray-900 dark:text-white transform translate-y-10 opacity-70 cursor-default'>Account Settings</div>
-    <div className="mx-2 w-96 bg-gray-300 dark:bg-[rgb(20,20,28)] transform translate-y-10">
-        <List className='text-gray-900 dark:text-white mt-9'>
-          <a href="#" className="flex text-initial ">
-            <ListItem className=' hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-gray-900 focus:text-gray-900 active:text-gray-900 dark:hover:text-white dark:focus:text-white dark:active:text-white' onClick={handleLikesClick}>
+    <div className='cursor-default text-white opacity-50 font-bold ml-4 transform translate-y-10'>Account Settings</div>
+    <div className="mx-2 w-96 bg-[rgb(20,20,28)] transform translate-y-10">
+        <List className='text-white mt-9 '>
+          <a href="#" className="text-initial flex  ">
+            <ListItem className='  hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-white'>
                 <span  style={{ whiteSpace: 'nowrap' }} >Email</span>
                 
-                  <p style={{ marginLeft: 'auto' }} className='text-sm text-gray-900 dark:text-white opacity-50 paragrapheLimite hover:text-red-400'>{email}</p>
+                  <p style={{ marginLeft: 'auto' }} className='text-white text-sm opacity-50 paragrapheLimite hover:text-red-400'>mouhamednaffeti77@gmail.com</p>
                   <svg style={{ marginLeft: 'auto' }}  xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right hover:stroke-[#f87171] active:stroke-[#f87171]"><path d="m9 18 6-6-6-6"/></svg>
                
             </ListItem>
           </a>
           <Divider color="#757575" className='w-90'/>
 
-          <a href="#" className="flex text-initial">
-            <ListItem className=' hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-gray-900 focus:text-gray-900 active:text-gray-900 dark:hover:text-white dark:focus:text-white dark:active:text-white' onClick={handlePhoneClick}>
+          <a href="#" className="text-initial flex">
+            <ListItem className=' hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-white'>
               <span  style={{ whiteSpace: 'nowrap' }}>Phone Number</span>
                
-                  <p style={{ marginLeft: 'auto' }} className='text-sm text-gray-900 dark:text-white opacity-70 paragrapheLimite hover:text-red-400 '>{phoneNumber}</p>
+                  <p style={{ marginLeft: 'auto' }} className='text-white text-sm opacity-50 paragrapheLimite hover:text-red-400 '>54697347</p>
                   <svg style={{ marginLeft: 'auto' }} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right hover:stroke-[#f87171] active:stroke-[#f87171]"><path d="m9 18 6-6-6-6"/></svg>
                
             </ListItem>
@@ -50,7 +33,7 @@ export default function Reglages({ email, phone }) {
         </List>
     </div>
     <div>
-    <p className='ml-5 text-gray-900 dark:text-white transform translate-y-24 opacity-75 cursor-default'>
+    <p className='cursor-default text-white opacity-75 transform translate-y-24 ml-5'>
       Verified Phone Number and Email help secure your account.
     </p>
     </div>

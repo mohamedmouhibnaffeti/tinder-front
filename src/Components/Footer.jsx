@@ -8,7 +8,7 @@ const Footer = () => {
             <section class="bg-white dark:bg-gray-900 flex flex-col items-center">
                 <Testim />
                 <Privacy />
-                <hr className="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-blue-800 to-transparent opacity-25 dark:opacity-100 w-11/12"/>
+                <hr className="my-12 h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-neutral-500 to-transparent opacity-25 dark:opacity-100 w-11/12"/>
                 <div className="flex lg:flex-row flex-col gap-3 w-full justify-between text-gray-800 dark:text-white mb-12 items-center px-4">
                     <div className="flex gap-7">
                         <NavLink to="/about"><p className="hover:text-[#E91E63] cursor-pointer">About Us</p></NavLink>

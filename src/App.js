@@ -7,7 +7,6 @@ import Profile from "./Components/Pages/Profile";
 import { CookieProvider } from "./Context/CookieContext";
 import { ConversationProvider } from "./Context/ConversationContext"
 import Loader from "./Components/ui/Loading";
-import { ThemeProvider } from "./Context/ThemeContext";
 
 const router = createBrowserRouter([
   {
@@ -73,9 +72,7 @@ function App() {
     <div className="">
       <CookieProvider>
         <ConversationProvider>
-          <ThemeProvider>
-            <RouterProvider router={router} />
-          </ThemeProvider>
+          <RouterProvider router={router} />
         </ConversationProvider>
       </CookieProvider>
     </div>

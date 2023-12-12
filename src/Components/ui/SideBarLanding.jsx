@@ -1,10 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import TinderLogo from "../Images/Tinder-logo-dark.png"
 import Login from "../ui/Login";
 import { NavLink } from "react-router-dom";
+import { CookieContext } from "../../Context/CookieContext";
+import { useNavigate } from "react-router-dom";
+import { CheckProfile } from "../API/ProfileAPI";
+
 
 const SideBarLanding = ({ SetSideOpen, items, SideBarOpen }) => {
+    const navigate = useNavigate()
+    const { setCookie, cookies } = useContext(CookieContext)
     const [open, setOpen] = useState(false)
+    const [username, setUsername] = useState()
+    const email = cookies['TinderEmail']
+    useEffect(()=>{
+        const CheckingProfile = async ({email}) => {
+            const res = await CheckProfile({email})
+            if(res){
+                setUsername(res.data.Profile.firstname)
+            }
+        }
+        CheckingProfile({email})
+        console.log("fel navbar")
+    }, [])
+    const Logout = () => {
+        setCookie('TinderJWT', '', 0)
+        setCookie('TinderEmail', '', 0)
+        window.location.reload()
+    }
     return(
         <div className={`lg:hidden flex flex-col z-50 fixed bg-white h-screen  justify-between  ${SideBarOpen ? 'translate-x-0 w-screen' : 'translate-x-full w-screen'} ease-in-out duration-300 dark:text-white dark:bg-black -top-[1px]`} >
             <div>
@@ -31,7 +54,15 @@ const SideBarLanding = ({ SetSideOpen, items, SideBarOpen }) => {
                 </div>
             </div>
             <div className="self-center w-full flex flex-col items-center gap-7">
-                <button className="mt-12 login-btn-bg px-7 py-2 text-xl text-white w-11/12 rounded-3xl border-2 border-red-100 transition delay-75 hover:scale-[1.05]" onClick={()=>setOpen(true)}>Log in</button>
+                {!username 
+                    ?
+                        <button className="mt-12 login-btn-bg px-7 py-2 text-xl text-white w-11/12 rounded-3xl border-2 border-red-100 transition delay-75 hover:scale-[1.05]" onClick={()=>setOpen(true)}>Log in</button>
+                    :
+                        <button className="mt-12 login-btn-bg px-7 py-2 text-xl text-white w-11/12 rounded-3xl border-2 border-red-100 transition delay-75 hover:scale-[1.05] flex justify-center items-center gap-4" onClick={Logout}>Log out<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+                      </svg>
+                      </button>
+                }
                 <h1 className="flex text-xl font-bold text-gray-700 gap-2 mb-10 -translate-x-1 dark:text-gray-400">
                         <span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

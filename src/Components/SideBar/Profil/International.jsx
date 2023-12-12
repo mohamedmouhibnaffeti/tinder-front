@@ -7,7 +7,7 @@ export default function International() {
   return (
     <div>
           <a href="#" className="text-initial flex">
-                <ListItem  className='hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-white  focus:text-white active:text-white'>
+                <ListItem  className='hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-white  '>
                 <span  style={{ whiteSpace: 'nowrap' }}>Global</span>
 
                 </ListItem>
@@ -18,7 +18,7 @@ export default function International() {
               <Divider color="#757575"  className='w-90'/>
 
               <a href="#" className="text-initial flex">
-                <ListItem  className='hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-white focus:text-white active:text-white '>
+                <ListItem  className='hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-white  '>
                 <span  style={{ whiteSpace: 'nowrap' }}>Preferred Languages</span>
                 <p style={{ marginLeft: 'auto' }} className='text-white text-sm opacity-50 paragrapheLimite hover:text-red-400 opacity-100'>English</p>
 

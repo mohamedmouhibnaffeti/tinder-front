@@ -27,7 +27,6 @@ const TabsSideBar = () => {
         const chats = await GetMyChats({email})
         if(res){
           setMyMatches(res.data.message)
-          console.log(res)
         }
         if(chats){
           setFetchedChats(chats.data.chats)
@@ -81,13 +80,13 @@ const TabsSideBar = () => {
             "bg-transparent ",
         }}>
         
-                 <Tab  key={"match"} value={"value"} className={` text-gray-900 dark:text-white text-lg ml-5 ${isMatch} underline-offset-8 decoration-4 decoration-pink-500 mt-5`} onClick={setMatchesEnabled}>
+                 <Tab  key={"match"} value={"value"} className={`text-white text-lg ml-5 ${isMatch} underline-offset-8 decoration-4 decoration-pink-500 mt-5`} onClick={setMatchesEnabled}>
                      <div  >
                        {t('match')} 
                     </div>
                    
                  </Tab>
-                 <Tab  key={"msg"} value={"value1"} className={` text-gray-900 dark:text-white text-lg ml-5 ${isMessage} underline-offset-8 decoration-4 decoration-pink-500 mt-5`} onClick={setMessagesEnabled}>
+                 <Tab  key={"msg"} value={"value1"} className={` text-white text-lg ml-5 ${isMessage} underline-offset-8 decoration-4 decoration-pink-500 mt-5`} onClick={setMessagesEnabled}>
                      <div>
                        {t('msg')} 
                       </div>
@@ -96,22 +95,22 @@ const TabsSideBar = () => {
             <TabsBody style={{zIndex: 0}}>
                 <TabPanel key={"match"} value={"value"}>
 
-                {(MyMatches.length === 0) ? <div className="flex flex-col justify-center items-center mt-9" > 
+                {(MyMatches?.length === 0) ? <div className="flex flex-col justify-center items-center mt-9" > 
                     <div className={`h-52 w-32  bg-gradient-to-tr from-red-400 to-pink-500 rounded-lg shadow1 ${isRotated} ? 'rotate-[30deg]' : '' `}>
                     </div>
                     <div className='cursor-default mt-10 justify-content-center items-center text-center'>
-                      <h1 className=" text-gray-900 dark:text-white text-2xl font-bold">
+                      <h1 className=" text-white text-2xl font-bold">
                          {t('startmatching')} 
                       </h1>
-                       <p className="text-gray-900 dark:text-white opacity-75 font-light mt-3">
+                       <p className="text-white opacity-75 font-light mt-3">
                        {t('textmatch')} 
                        </p>
                     </div>
                 </div>
                 : 
                 <div className="w-full h-full flex gap-2 flex-wrap mt-4 items-center justify-center">
-                  { MyMatches?.map((match)=>(
-                    <ProfileCard  imageUrl={match?.images[0]} profileName={match?.firstname}  />
+                  {MyMatches?.map((match)=>(
+                    <ProfileCard  imageUrl={match.images[0]} profileName={match.firstname}  />
                     ))}
                 </div>
                 }
@@ -121,14 +120,14 @@ const TabsSideBar = () => {
                  <TabPanel key={"msg"} value={"value1"}>
                     <div className="flex flex-col justify-center items-center">
 
-                      {UserDataToShow.length === 0 ?
+                      {2 === 4 ?
                       <div>
                         <iframe src="https://lottie.host/embed/cb938baf-01e7-4649-ac44-062630fb66cb/Z8DkbPVGaF.json" className="w-96 h-64"></iframe>
                         <div className='cursor-default	mt-10 justify-content-center items-center text-center'>
-                          <h1 className="text-gray-900 dark:text-white text-2xl font-bold ">
+                          <h1 className="text-white text-2xl font-bold ">
                            {t('sayhello')} 
                           </h1>
-                          <p className="text-gray-900 dark:text-white opacity-75  font-light mt-3">
+                          <p className="text-white opacity-75  font-light mt-3">
                            {t('textmsg')} 
                           </p>
                         </div>

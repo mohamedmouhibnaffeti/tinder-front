@@ -8,7 +8,7 @@ const Policy = () => {
             <Navbar />
             <div className="bg-white w-screen min-h-screen flex flex-col dark:bg-gray-900 dark:text-white pt-32 px-7 gap-3 justify-center">
                 <h1 className="text-5xl self-center font-bold mb-7">Privacy Policy</h1>
-                <div className="flex flex-col gap-4 px-7 py-4 bg-gray-200 rounded-lg border-2 border-gray-400 dark:border-gray-500 dark:bg-gray-700 ">
+                <div className="flex flex-col gap-4 px-7 py-4 bg-gray-200 rounded-lg border-2 border-gray-400 dark:border-gray-500 dark:bg-zinc-700 ">
                     <h1 className="text-4xlmd:text-4xl text-2xl font-bold">Information We Collect</h1>
                     <h3 className="font-bold text-xl">1. Profile Information:</h3>
                     <p className="text-lg text-gray-700 dark:text-gray-300 px-3">When you create an account, we collect the information you provide, such as your name, age, gender, location, and profile pictures.</p>
@@ -21,7 +21,7 @@ const Policy = () => {
                     <h3 className="font-bold text-xl">5. Location Information:</h3>
                     <p className="text-lg text-gray-700 dark:text-gray-300 px-3">With your consent, we may collect and process information about your precise location to enhance the matching experience.</p>
                 </div>
-                <div className="flex flex-col gap-4 px-7 py-4 bg-gray-200 rounded-lg border-2 border-gray-400 dark:border-gray-500 dark:bg-gray-700 ">
+                <div className="flex flex-col gap-4 px-7 py-4 bg-gray-200 rounded-lg border-2 border-gray-400 dark:border-gray-500 dark:bg-zinc-700 ">
                     <h1 className="text-4xlmd:text-4xl text-2xl font-bold">How We Use Your Information</h1>
                     <h3 className="font-bold text-xl">1. Matching and Recommendations:</h3>
                     <p className="text-lg text-gray-700 dark:text-gray-300 px-3">We use your profile information and preferences to provide personalized matching and recommendations.</p>
@@ -34,7 +34,7 @@ const Policy = () => {
                     <h3 className="font-bold text-xl">5. Location Information:</h3>
                     <p className="text-lg text-gray-700 dark:text-gray-300 px-3">We employ industry-standard security measures to protect your data and ensure a secure environment.</p>
                 </div>
-                <div className="flex flex-col gap-4 px-7 py-4 bg-gray-200 rounded-lg border-2 border-gray-400 dark:border-gray-500 dark:bg-gray-700 ">
+                <div className="flex flex-col gap-4 px-7 py-4 bg-gray-200 rounded-lg border-2 border-gray-400 dark:border-gray-500 dark:bg-zinc-700 ">
                     <h1 className="text-4xlmd:text-4xl text-2xl font-bold">Your Choices</h1>
                     <h3 className="font-bold text-xl">1. Profile Settings:</h3>
                     <p className="text-lg text-gray-700 dark:text-gray-300 px-3">You have control over the information you share on your profile, and you can update or modify it at any time.</p>
@@ -43,7 +43,7 @@ const Policy = () => {
                     <h3 className="font-bold text-xl">3. Communication Preferences:</h3>
                     <p className="text-lg text-gray-700 dark:text-gray-300 px-3">Manage your communication preferences and notifications through the app settings.</p>
                 </div>
-                <div className="flex flex-col gap-4 px-7 py-4 bg-gray-200 rounded-lg border-2 border-gray-400 dark:border-gray-500 dark:bg-gray-700 ">
+                <div className="flex flex-col gap-4 px-7 py-4 bg-gray-200 rounded-lg border-2 border-gray-400 dark:border-gray-500 dark:bg-zinc-700 ">
                     <h1 className="text-4xlmd:text-4xl text-2xl font-bold">Your Security Matters</h1>
                     <p className="text-lg text-gray-700 dark:text-gray-300 px-3 font-semibold">We take the security of your information seriously. While we implement measures to protect your data, no method of transmission over the internet is entirely secure. Please take steps to protect your personal information and report any security concerns to us.</p>
                 </div>
