@@ -106,8 +106,8 @@ const TabsSideBar = () => {
 
                  <TabPanel key={"msg"} value={"value1"}>
                  <List className='text-gray-900 dark:text-white mt-9 gap-6 '>
-                        <input type="text" className="bg-gray-200 border-2 border-gray-400 outline-1 outline-gray-600 dark:text-gray-400  text-gray-200 dark:bg-gray-800 rounded-md py-2" value={targetEmail} onChange={(e)=>setTargetEmail(e.target.value)} placeholder='Insert user email...' />
-                        <button className="bg-pink-400 dark:bg-pink-800/90 py-2 rounded-lg transition delay-150 ease-in-out font-semibold text-lg hover:bg-pink-400/90 dark:hover:bg-pink-800/80 dark:text-black text-white" onClick={()=>Block({ targetEmail, email })}> Block </button>
+                        <input type="text" className="bg-gray-200 border-2 border-gray-400 outline-1 outline-gray-600 dark:text-gray-400  text-gray-200 dark:bg-gray-800 rounded-md py-2" value={targetEmail} onChange={(e)=>setTargetEmail(e.target.value)} placeholder= {t('email')}/>
+                        <button className="bg-pink-400 dark:bg-pink-800/90 py-2 rounded-lg transition delay-150 ease-in-out font-semibold text-lg hover:bg-pink-400/90 dark:hover:bg-pink-800/80 dark:text-black text-white" onClick={()=>Block({ targetEmail, email })}> {t('submit')} </button>
                 </List>
                 {res?.status === 202 
                 ? 

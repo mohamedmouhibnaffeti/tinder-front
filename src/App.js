@@ -6,7 +6,9 @@ import MainTinder from "./Components/Pages/Main/Main"
 import Profile from "./Components/Pages/Profile";
 import { CookieProvider } from "./Context/CookieContext";
 import { ConversationProvider } from "./Context/ConversationContext"
-import Loader from "./Components/ui/Loading";
+import { ThemeProvider } from "./Context/ThemeContext";
+import Community from "./Components/Pages/community";
+import SafetyTips from "./Components/Pages/SafetyTips";
 
 const router = createBrowserRouter([
   {
@@ -38,8 +40,16 @@ const router = createBrowserRouter([
     element: <MainTinder />
   },
   {
-    path: "profile",
+    path: "/profile",
     element: <Profile />
+  },
+  {
+    path: "/tips",
+    element: <SafetyTips />
+  },
+  {
+    path: "/community",
+    element: <Community />
   }
 ])
 
@@ -72,7 +82,9 @@ function App() {
     <div className="">
       <CookieProvider>
         <ConversationProvider>
-          <RouterProvider router={router} />
+          <ThemeProvider>
+            <RouterProvider router={router} />
+          </ThemeProvider>
         </ConversationProvider>
       </CookieProvider>
     </div>

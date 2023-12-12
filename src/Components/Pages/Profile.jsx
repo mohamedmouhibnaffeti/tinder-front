@@ -1,13 +1,17 @@
 import React, {useEffect, useState, useContext} from "react";
-import ProfileNav from "../ui/ProfileNav"
 import Footer from "../Footer";
 import ImageInput from "../ui/ImageInput";
 import { CreateProfile } from "../API/ProfileAPI";
 import { CookieContext } from "../../Context/CookieContext";
 import { useNavigate } from "react-router-dom";
 import { CheckProfile } from "../API/ProfileAPI";
+import { useTranslation } from 'react-i18next';
+
 
 export default function Profile(){
+
+    const{t}=useTranslation()
+
     const { cookies } = useContext(CookieContext)
     const email = cookies['TinderEmail']
     useEffect(()=>{
@@ -18,9 +22,14 @@ export default function Profile(){
             }
         }
         CheckingProfile({email})
-    }, [])
+    }, [email])
 
     const navigate = useNavigate()
+
+    const [Location, setLocation] = useState({
+        Longtitude: 0,
+        Latitude: 0
+    })
 
     const [data, setData] = useState({
         firstname: "",
@@ -30,7 +39,8 @@ export default function Profile(){
         showme: "",
         aboutme: "",
         images: [],
-        email: email
+        email: email,
+        Location
     })
     const maxLength = 50
     const onChangeHandler = (field, value) => {
@@ -65,48 +75,84 @@ export default function Profile(){
 
     const maxLettersAbout = maxLength - data.aboutme.length
 
+    //setting location
+    const [Lat, setLat] = useState()
+    const [Long, setLong] = useState()
+    const options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0,
+      };
+      
+      function success(pos) {
+        const crd = pos.coords;
+      
+        console.log("Your current position is:");
+        console.log(`Latitude : ${crd.latitude}`);
+        console.log(`Longitude: ${crd.longitude}`);
+        console.log(`More or less ${crd.accuracy} meters.`);
+        setLong(crd.longitude)
+        setLat(crd.latitude)
+      }
+      useEffect(()=>{
+        setLocation({ Longtitude: Long, Latitude: Lat })
+      }, [Long, Lat])
+
+      useEffect(()=>{
+        onChangeHandler("Location", Location)
+      }, [Location])
+      
+      function error(err) {
+        console.warn(`ERROR(${err.code}): ${err.message}`);
+      }
+    
+    const location = navigator.geolocation.getCurrentPosition(success, error, options)
+    console.log(data)
+        
+    
+
     return (
         <div className="bg-gray-white overflow-x-hidden dark:bg-gray-900">
             <div className="flex flex-col w-full h-full items-center gap-4 mb-4">
-                <h1 className="mt-4 text-black dark:text-white text-4xl font-semibold cursor-none "> Create Profile </h1>
+                <h1 className="mt-4 text-black dark:text-white text-4xl font-semibold cursor-none "> {t('createaccount')} </h1>
                 { (RequestResult.status === 400 || RequestResult.status === 500) && <p className="text-red-800 text-lg">{RequestResult.data.message}</p>}
                 <div className="w-full h-full flex lg:flex-row flex-col mt-4 gap-3 px-5 justify-center">
                     <div className="py-12 px-24 md:gap-8 gap-5 items-center flex flex-col rounded-lg border border-pink-700">
                         <div className="flex md:gap-2 gap-5 md:flex-row flex-col ">
                             <div className=" flex flex-col gap-2">
-                                <label htmlFor="firstname" className="dark:text-white font-semibold text-lg">&nbsp; First Name </label>
-                                <input type="text" className="border-2 rounded-lg h-12 border-purple-600 dark:bg-zinc-800 dark:text-white font-thin w-64" id="firstname" onChange={(e)=>onChangeHandler("firstname", e.target.value)}/>
+                                <label htmlFor="firstname" className="dark:text-white font-semibold text-lg">&nbsp;  {t('firstname')} </label>
+                                <input type="text" className="border-2 rounded-lg h-12 border-purple-600 dark:bg-gray-800 dark:text-white font-thin w-64" id="firstname" onChange={(e)=>onChangeHandler("firstname", e.target.value)}/>
                             </div>
                             <div className=" flex flex-col gap-2">
-                                <label htmlFor="lastname" className="dark:text-white font-semibold text-lg">&nbsp; Last Name </label>
+                                <label htmlFor="lastname" className="dark:text-white font-semibold text-lg">&nbsp; {t('lastname')}</label>
                                 <input type="text" className="border-2 rounded-lg border-purple-600 dark:bg-gray-800 h-12 dark:text-white font-thin w-64" id="lastname" onChange={(e)=>onChangeHandler("lastname", e.target.value)} />
                             </div>
                         </div>
                         <div className=" flex flex-col gap-2">
-                            <label htmlFor="lastname" className="dark:text-white font-semibold text-lg">&nbsp; Email </label>
+                            <label htmlFor="lastname" className="dark:text-white font-semibold text-lg">&nbsp; {t('email')} </label>
                             <input type="text" className="border-2 rounded-lg border-purple-600 dark:bg-gray-800 h-12 dark:text-white font-thin md:w-[520px] w-64" id="email" value={data.email} disabled />
                         </div>
                         <div className=" flex flex-col gap-2">
-                            <label htmlFor="lastname" className="dark:text-white font-semibold text-lg">&nbsp; Birthday </label>
+                            <label htmlFor="lastname" className="dark:text-white font-semibold text-lg">&nbsp;  {t('birthday')} </label>
                             <input type="date" className="border-2 rounded-lg border-purple-600 dark:bg-gray-800 h-12 dark:text-white font-thin md:w-[520px] w-64" id="birthday" onChange={(e)=>onChangeHandler("birthday", e.target.value)} />
                         </div>
                         <div className=" flex flex-col gap-2 md:self-start md:pl-44 lg:pl-0">
-                            <p className="dark:text-white font-semibold text-lg self-start">&nbsp; Gender </p>
+                            <p className="dark:text-white font-semibold text-lg self-start">&nbsp; {t('gender')} </p>
                             <div className="flex gap-5 ">
-                                <button className={`dark:text-gray-100 border ${data.gender === 'Male' ? 'bg-slate-600 border-white ' : 'dark:btn-light btn-dark'} py-2 px-8 rounded-3xl md:w-44 w-32 transition delay-200 hover:scale-105 `} onClick={()=>onChangeHandler("gender", "Male")} > Male </button>
-                                <button className={`dark:text-gray-100 border ${data.gender === 'Female' ? 'bg-slate-600 border-white ' : 'dark:btn-light btn-dark'} py-2 px-8 rounded-3xl md:w-44 w-32 transition delay-200 hover:scale-105`} onClick={()=>onChangeHandler("gender", "Female")} > Female </button>
+                                <button className={`dark:text-gray-100 border ${data.gender === 'Male' ? ' dark:btn-light btn-dark' : 'dark:bg-slate-400  dark:border-white bg-gray-200 border-gray-300'} py-2 px-8 rounded-3xl md:w-44 w-32 transition delay-200 hover:scale-105 `} onClick={()=>onChangeHandler("gender", "Male")} > {t('male')} </button>
+                                <button className={`dark:text-gray-100 border ${data.gender === 'Female' ? 'dark:btn-light btn-dark' : 'dark:bg-slate-600 dark:border-white bg-gray-200 border-gray-300'} py-2 px-8 rounded-3xl md:w-44 w-32 transition delay-200 hover:scale-105`} onClick={()=>onChangeHandler("gender", "Female")} > {t('female')}</button>
                             </div>
                         </div>
                         <div className=" flex flex-col gap-2 md:self-start md:pl-44 lg:pl-0">
-                            <p className="dark:text-white font-semibold text-lg self-start">&nbsp; Show me </p>
+                            <p className="dark:text-white font-semibold text-lg self-start">&nbsp; {t('showme')} </p>
                             <div className="flex gap-5 ">
-                                <button className={`dark:text-gray-100 border ${data.showme === 'Male' ? 'bg-slate-600 border-white ' : 'dark:btn-light btn-dark'} py-2 px-8 rounded-3xl md:w-44 w-32 transition delay-200 hover:scale-105`} onClick={()=>onChangeHandler("showme", "Male")} > Males </button>
-                                <button className={`dark:text-gray-100 border ${data.showme === 'Female' ? 'bg-slate-600 border-white ' : 'dark:btn-light btn-dark'} py-2 px-8 rounded-3xl md:w-44 w-32 transition delay-200 hover:scale-105`} onClick={()=>onChangeHandler("showme", "Female")} > Females </button>
+                                <button className={`dark:text-gray-100 border ${data.showme === 'Male' ? 'dark:btn-light btn-dark' : 'dark:bg-slate-600 dark:border-white bg-gray-200 border-gray-300'} py-2 px-8 rounded-3xl md:w-44 w-32 transition delay-200 hover:scale-105`} onClick={()=>onChangeHandler("showme", "Male")} > {t('males')} </button>
+                                <button className={`dark:text-gray-100 border ${data.showme === 'Female' ? 'dark:btn-light btn-dark' : 'dark:bg-slate-600 dark:border-white bg-gray-200 border-gray-300'} py-2 px-8 rounded-3xl md:w-44 w-32 transition delay-200 hover:scale-105`} onClick={()=>onChangeHandler("showme", "Female")} > {t('females')}  </button>
                             </div>
                         </div>
                         <div className=" flex flex-col gap-2">
-                                <label htmlFor="lastname" className="dark:text-white font-semibold text-lg">&nbsp; Describe your self in few words <span className="font-thin dark:text-white">&nbsp;&nbsp;({maxLettersAbout})</span></label>
-                                <input type="text" className="border-2 rounded-lg border-purple-600 dark:bg-zinc-800 h-12 dark:text-white font-thin md:w-[520px] w-64" maxLength={50} onChange={(e)=>onChangeHandler("aboutme", e.target.value)} />
+                                <label htmlFor="lastname" className="dark:text-white font-semibold text-lg">&nbsp; {t('describeyourself')}<span className="font-thin dark:text-white">&nbsp;&nbsp;({maxLettersAbout})</span></label>
+                                <input type="text" className="border-2 rounded-lg border-purple-600 dark:bg-gray-800 h-12 dark:text-white font-thin md:w-[520px] w-64" maxLength={50} onChange={(e)=>onChangeHandler("aboutme", e.target.value)} />
                         </div>
                     </div>
 
@@ -126,7 +172,7 @@ export default function Profile(){
                 { ProfileLoading ?
                     <span className="loader" style={{alignSelf: "center", marginTop: "18px"}}></span>
                 :
-                    <button className="bg-purple-700 px-6 py-2 text-lg font-semibold text-white rounded-3xl transition delay-100 hover:bg-purple-700/80 active:bg-purple-700 my-6" onClick={()=>OnSubmitHandler(data)} >Create Profile</button>
+                    <button className="bg-purple-700 px-6 py-2 text-lg font-semibold text-white rounded-3xl transition delay-100 hover:bg-purple-700/80 active:bg-purple-700 my-6" onClick={()=>OnSubmitHandler(data)} >{t('createprofile')}</button>
                 }
                     </div>
             <Footer />

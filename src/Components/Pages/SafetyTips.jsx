@@ -4,19 +4,19 @@ import Footer from "../Footer"
 import { useTranslation } from 'react-i18next';
 
 
-const Policy = () => {
+const SafetyTips = () => {
     const{t}=useTranslation()
 
     return (
         <div className="overflow-hidden">
             <Navbar />
             <div className="bg-white w-screen min-h-screen flex flex-col dark:bg-gray-900 dark:text-white pt-32 px-7 gap-3 justify-center">
-                <h1 className="text-5xl self-center font-bold mb-7">{t('privacypolicy')}</h1>
+                <h1 className="text-5xl self-center font-bold mb-7">Safety Tips</h1>
                 <div className="flex flex-col gap-4 px-7 py-4 bg-gray-200 rounded-lg border-2 border-gray-400 dark:border-gray-500 dark:bg-gray-700 ">
-                    <h1 className="text-4xlmd:text-4xl text-2xl font-bold">{t('infowecollect')}</h1>
-                    <h3 className="font-bold text-xl">1{t('profileinfo')}</h3>
+                    <h1 className="text-4xlmd:text-4xl text-2xl font-bold">Welcome to our community! Your safety is our priority. Please take a moment to review these safety tips to ensure a secure and enjoyable experience for everyone.</h1>
+                    <h3 className="font-bold text-xl">Protect Your Personal Information:</h3>
                     <p className="text-lg text-gray-700 dark:text-gray-300 px-3">{t('whenucreate')}</p>
-                    <h3 className="font-bold text-xl">{t('usagedata')}</h3>
+                    <h3 className="font-bold text-xl">Be cautious about sharing personal information online. Avoid posting your full name, address, phone number, or any other sensitive details that could compromise your safety.</h3>
                     <p className="text-lg text-gray-700 dark:text-gray-300 px-3"> {t('wecollect')}</p>
                     <h3 className="font-bold text-xl">{t('communicationdata')}</h3>
                     <p className="text-lg text-gray-700 dark:text-gray-300 px-3">{t('tofacilitate')}</p>
@@ -57,4 +57,4 @@ const Policy = () => {
     )
 }
 
-export default Policy
+export default SafetyTips

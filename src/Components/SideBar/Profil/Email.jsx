@@ -9,6 +9,8 @@ import Button from '@mui/joy/Button';
 import Stack from '@mui/joy/Stack';
 import { UpdateProfile } from '../../API/ProfileAPI';
 import { SidebarContext } from '../../../Context/SideBarContext';
+import { useTranslation } from 'react-i18next';
+
 
 const style = {
   position: 'absolute',
@@ -25,7 +27,9 @@ const style = {
 };
 
 function Email() {
-    const {profile} = useContext(SidebarContext)
+
+  const{t}=useTranslation()
+  const {profile} = useContext(SidebarContext)
   const [open, setOpen] = useState(false);
   const [newEmail, setNewEmail] = useState('');
   const oldEmail = profile.email
@@ -50,7 +54,7 @@ function Email() {
   };
     return (
         <div>
-            <div className='cursor-default text-gray-900 dark:text-white opacity-50 font-bold ml-4 transform translate-y-10'> Email</div>
+            <div className='cursor-default text-gray-900 dark:text-white opacity-50 font-bold ml-4 transform translate-y-10'> {t('email')}</div>
             <div className="mx-2 w-96 bg-gray-300 dark:bg-[rgb(20,20,28)] translate-y-10">
                 <List className='text-gray-900 dark:text-white mt-9 '>
 
@@ -65,7 +69,7 @@ function Email() {
                     Verified email
                 </p>
                 <div className="flex flex-col items-center justify-center mt-10">
-        <button className='w-40 h-10 text-white rounded-xl bg-gradient-to-r from-pink-500 to-red-400' onClick={handleOpen} >Update Email</button>
+        <button className='w-40 h-10 text-white rounded-xl bg-gradient-to-r from-pink-500 to-red-400' onClick={handleOpen} >{t('updateemail')}</button>
       </div>
 
       <Modal
@@ -77,10 +81,10 @@ function Email() {
         <Box sx={style} >
           <div >
             <Typography id="modal-modal-title" variant="h6" component="h2" className='text-center text-white '>
-              Update Email
+            {t('updateemail')}
             </Typography>
           </div>
-          <div className='mt-5 font-bold text-white opacity-50 cursor-default '>New Email</div>
+          <div className='mt-5 font-bold text-white opacity-50 cursor-default '>{t('newemail')}</div>
           <form onSubmit={handleSubmit}>
             <Stack spacing={5} className='mt-9 justify-center items-center'>
               <Input
@@ -90,7 +94,7 @@ function Email() {
                 value={newEmail}
                 onChange={(e) => setNewEmail(e.target.value)}
               />
-              <Button type="submit" color="neutral" variant="outlined" className='w-32 '>Submit</Button>
+              <Button type="submit" color="neutral" variant="outlined" className='w-32 '>{t('submit')}</Button>
             </Stack>
           </form>
         </Box>

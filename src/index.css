@@ -114,14 +114,6 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   background-color: #E91E63;
 }
 
-.violet-sidebar1{
-  background: rgba( 207, 15, 82, 0.8 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 20px );
-  -webkit-backdrop-filter: blur( 20px );
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-}
-
 .shadow1{
   box-shadow: rgba(230, 16, 151, 0.4) 5px 5px, rgba(128, 9, 84, 0.3) 10px 10px, rgba(59, 6, 40, 0.2) 15px 15px, rgba(74, 10, 50, 0.1) 20px 20px, rgba(0, 0, 0, 0.05) 25px 25px;
 }
@@ -131,7 +123,12 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
+.paragrapheLimite1 {
+  width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .slider {
   height: 10px;
   width: 100%;
@@ -181,44 +178,111 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   backdrop-filter: blur( 9px );
   -webkit-backdrop-filter: blur( 9px );
   border: 1px solid rgba( 255, 255, 255, 0.18 );
-}
 
-.LoadingLoader {
+}
+.card {
   position: relative;
-  width: 40px;
-  height: 60px;
-  animation: heartBeat 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+  width:27rem;
+  height: 75vh;
+  border-radius: 20px;
+  margin-bottom: 10vh;
+  background-size: cover;
+  background-position: center;
 }
 
-.LoadingLoader:before,
-.LoadingLoader:after {
-  content: "";
-  background: #ff00b3 ;
-  width: 60px;
-  height: 80px;
-  border-radius: 50px 50px 0 0;
+.info{
   position: absolute;
-  left: 0;
-  bottom: 0;
-  transform: rotate(45deg);
-  transform-origin: 50% 68%;
-  box-shadow: 5px 4px 5px #0004 inset;
+  display: flex;
+  font-size: 1rem;
+  bottom: 200px;
+  right: 50px;
 }
-.LoadingLoader:after {
-  transform: rotate(-45deg);
+.info-user1 {
+  display: flex;
+  gap: 9px;
+  position: absolute;
+  font-size: 2rem;
+  bottom: 200px;
+  margin-left: 20px;
+ 
 }
-@keyframes heartBeat {
-  0% { transform: scale(0.95) }
-  5% { transform: scale(1.1) }
-  39% { transform: scale(0.85) }
-  45% { transform: scale(1) }
-  60% { transform: scale(0.95) }
-  100% { transform: scale(0.9) }
+.info-user2 {
+  position: absolute;
+  bottom: 170px;
+  font-size: 1rem;
+  gap: 9px;
+  display: flex;
+  margin-left: 20px;
 }
-      
+.info-user3 {
+  position: absolute;
+  bottom: 150px;
+  font-size: 1rem;
+  gap: 9px;
+  display: flex;
+  margin-left: 20px;
+}
+.card-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  height: 85vh;
+  width: 27rem;
+  align-items: center;
+  border-radius: 20px;
+  position: relative;
+  margin-bottom: 20px;
+}
 
-.bg-Loader{
-  background-color: #5624ac;
-  background-image: linear-gradient(319deg, #663dff 0%, #aa00ff 37%, #cc4499 100%);
+.swipe {
+  position: absolute;
+}
 
+.swipe__Button {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  margin-top: auto;
+  width: 100%;
+  margin-bottom: 15px;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.swipe__Button .MuiIconButton-root{
+  box-shadow: 0px 10px 53px 0px rgba(0, 0, 0, 0.3) !important;
+ 
+}
+
+.swipeButton__left {
+  padding: 40px !important;
+  width: 5px;
+  height: 5px;
+  color: #ec5e6f !important;
+  border: 2px solid #ec5e6f !important;
+}
+.swipeButton__star {
+  padding: 40px !important;
+  width: 5px;
+  height: 5px;
+  color: #62b4f9 !important;
+  border: 2px solid #62b4f9 !important;
+}
+.swipeButton__right {
+  padding: 40px !important;
+  width: 5px;
+  height: 5px;
+  color: #76e2b3 !important;
+  border: 2px solid #76e2b3 !important;
+
+}
+
+.active1{
+  position: absolute;
+  display: flex;
+  gap: 5px;
+  font-size: 1rem;
+  bottom: 250px;
+  font-weight: bold;
+  margin-left: 20px;
 }

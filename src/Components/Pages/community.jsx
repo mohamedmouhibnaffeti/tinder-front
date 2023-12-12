@@ -4,7 +4,7 @@ import Footer from "../Footer"
 import { useTranslation } from 'react-i18next';
 
 
-const Policy = () => {
+const Community = () => {
     const{t}=useTranslation()
 
     return (
@@ -57,4 +57,4 @@ const Policy = () => {
     )
 }
 
-export default Policy
+export default Community

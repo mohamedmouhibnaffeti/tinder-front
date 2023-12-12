@@ -98,10 +98,8 @@ function Cardtinder() {
             filteredProfiles = filteredProfiles.filter(profile => {
               const age = calculateAge(profile.birthday);
           
-              // Only show profiles within the specified age range if fixedAgeRange is true
               const isWithinAgeRange = !fixedAgeRange || (age >= ageRange[0] && age <= ageRange[1]);
-          
-              // Only show profiles within the specified distance if fixedDistance is true
+
               const isWithinDistance = !fixedDistance || DistancePreference <= calculateDistance(Location, profile?.Location) ;
               console.log("within distance", isWithinDistance)
           
@@ -167,7 +165,7 @@ function Cardtinder() {
 
   return (
     <div>
-      <div className='self-center shadow-md mr-[4rem] shadow-pink-500/50 card-container rounded-t-xl'>
+      <div className='self-center shadow-md lg:mr-[4rem] mr-4 shadow-pink-500/50 card-container rounded-t-xl'>
         {db.map((profile, index) => (
           <TinderCard
             ref={childRefs[index]}

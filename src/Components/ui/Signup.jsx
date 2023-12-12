@@ -12,6 +12,8 @@ import { pink } from '@mui/material/colors';
 import { SignupFN } from '../API/AuthApi';
 import { useNavigate } from 'react-router-dom';
 import { CookieContext } from '../../Context/CookieContext';
+import { useTranslation } from 'react-i18next';
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -32,6 +34,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
 
 
 export default function Signup({SignOpen, setSignOpen}) {
+  const{t}=useTranslation()
   const { setCookie } = React.useContext(CookieContext)
   const navigate = useNavigate()
 
@@ -65,7 +68,7 @@ export default function Signup({SignOpen, setSignOpen}) {
       >
         <DialogTitle sx={{ m: 0, p: 2, alignSelf: "center", fontWeight: "bold", "fontSize": "larger", display: 'flex', alignItems: "center", flexDirection: "column"}} id="customized-dialog-title">
         <p style={{color: '#27005D'}}>Get Started</p><br />
-        <p style={{fontWeight: "100", fontSize: '15px', marginTop: '-22px'}}> By clicking <span style={{fontWeight: "bold"}}> Sign up </span>, you agree to our terms. </p>
+        <p style={{fontWeight: "100", fontSize: '15px', marginTop: '-22px'}}> {t('by clicking')} <span style={{fontWeight: "bold"}}>{t('sign up')}</span>{t('youagree')} </p>
         </DialogTitle>
         <IconButton
           aria-label="close"
@@ -88,7 +91,7 @@ export default function Signup({SignOpen, setSignOpen}) {
             { SignupLoading ?
               <span className="loader" style={{alignSelf: "center", marginTop: "18px"}}></span>
               :
-              <ColorButton variant="contained" sx={{"marginTop": 2}} fullWidth onClick={SignupBtn} >Sign up</ColorButton>
+              <ColorButton variant="contained" sx={{"marginTop": 2}} fullWidth onClick={SignupBtn} >{t('sign up')}</ColorButton>
             }
           </Typography>
           </DialogContent>

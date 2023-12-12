@@ -6,6 +6,8 @@ import { getChatMessages } from "../API/ChatApi";
 import { loadLanguages } from "i18next";
 import { CookieContext } from "../../Context/CookieContext";
 import { CreateMessage } from "../API/ChatApi";
+import { useTranslation } from 'react-i18next';
+
 
 export default function Conversation ({ setOpen, setSendMessage, receiveMessage, sendMessage, setReceiveMessage }){
     const { chatID, setChatID, ChatMember } = useContext(ConversationContext)
@@ -13,6 +15,8 @@ export default function Conversation ({ setOpen, setSendMessage, receiveMessage,
     const email = cookies['TinderEmail']
     const [text, setText] = useState("");
     const scroll = useRef();
+    const{t}=useTranslation()
+
 
     
     async function handleSend() {
@@ -52,8 +56,8 @@ export default function Conversation ({ setOpen, setSendMessage, receiveMessage,
         scroll.current?.scrollIntoView({behaviour: "smooth"})
     }, [messages])
     return (
-        <div className="flex flex-col bg-zinc-900 w-full h-screen ">
-            <div className="flex justify-between items-center border-b-2 border-gray-700 shadow-slate-900 shadow-md h-20 px-8">
+        <div className="flex flex-col bg-white dark:bg-black w-full h-screen ">
+            <div className="flex justify-between items-center border-b-2 border-gray-400 dark:border-gray-700  shadow-blue-gray-400 dark:shadow-blue-gray-900 shadow-md h-20 px-8">
                 <div className="flex gap-5 items-center">
                     <img src={`${ChatMember.images[0]}`} alt="" width={60} height={60} className="rounded-full w-14 h-14" />
                     <p className="text-lg text-pink-700 font-bold cursor-default">
@@ -61,8 +65,8 @@ export default function Conversation ({ setOpen, setSendMessage, receiveMessage,
                     </p>
                 </div>
                 <div>
-                    <div className="border-2 border-gray-500 rounded-full p-[1px] cursor-pointer active:scale-90" onClick={()=>{setOpen(false); setChatID('')}}>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 text-gray-400 transition ease-in-out delay-300 hover:rotate-90 cursor-pointer">
+                    <div className="border-2 border-gray-700 dark:border-gray-500 rounded-full p-[1px] cursor-pointer active:scale-90" onClick={()=>{setOpen(false); setChatID('')}}>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7 text-gray-700 dark:text-gray-400 transition ease-in-out delay-300 hover:rotate-90 cursor-pointer">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </div>
@@ -104,11 +108,11 @@ export default function Conversation ({ setOpen, setSendMessage, receiveMessage,
                         value={text}
                         onChange={setText}
                         cleanOnEnter
-                        keepOpened
+                        keepOpened={true}
                         onEnter={handleSend}
-                        placeholder="Type a message"
+                        placeholder={t("Type a message")}
                     />
-                    <button className="text-red-700 font-bold bg-inherit w-20 transition ease-in-out delay-100 hover:bg-zinc-800 active:bg-zinc-950" onClick={handleSend}>SEND</button>
+                    <button className="text-red-700 font-bold bg-inherit w-20 transition ease-in-out delay-100 hover:bg-zinc-800 active:bg-zinc-950" onClick={handleSend}>{t('send')}</button>
                 </div>
             </div>
         </div>

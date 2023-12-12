@@ -2,11 +2,14 @@ import React, { useEffect, useContext, useState, useRef } from "react"
 import { isAuthenticated } from "../../API/AuthApi"
 import { CookieContext } from "../../../Context/CookieContext"
 import { useNavigate } from "react-router-dom"
-import FileBase from "react-file-base64"
-import SideBar from "../../SideBar/SideBar"
 import { ConversationContext, ConversationProvider } from "../../../Context/ConversationContext"
 import Conversation from "../../SideBar/Conversation"
 import { io } from "socket.io-client"
+import Cardtinder from "../../SideBar/Cardtinder"
+import { SidebarProvider } from "../../../Context/SideBarContext"
+import Sidebar from "../../SideBar/SideBar"
+import MainNav from "../../ui/MainNav"
+import { IoMdMenu } from "react-icons/io";
 
 export default function MainTinder(){
     const { open, setOpen, chatID } = useContext(ConversationContext)
@@ -51,31 +54,38 @@ export default function MainTinder(){
             setReceiverMessage(data)
         })
     }, [])
-    const options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0,
-      };
-      
-      function success(pos) {
-        const crd = pos.coords;
-      
-        console.log("Your current position is:");
-        console.log(`Latitude : ${crd.latitude}`);
-        console.log(`Longitude: ${crd.longitude}`);
-        console.log(`More or less ${crd.accuracy} meters.`);
+
+    const[showSidebar,setShowSidebar]=useState('hidden')
+    const[showNav,setShowNav]=useState(true)
+    const[showCard,setShowCard]=useState(true)
+
+    const openSidebar=()=>{
+
+        setShowSidebar(showSidebar === 'hidden'   ? '' : 'hidden');
+        setShowNav(!showNav);
+        setShowCard(!showCard);
+    
       }
-      
-      function error(err) {
-        console.warn(`ERROR(${err.code}): ${err.message}`);
-      }
-    const location = navigator.geolocation.getCurrentPosition(success, error, options)
-    console.log(location)
+    
     
     return(
-        <div className="flex flex-row overflow-y-hidden">
-            <SideBar />
+        <SidebarProvider>
+        <div className="flex w-screen lg:flex-row md:fixed flex-col overf overflow-y-hidden overflow-x-hidden">
+            <div className={`lg:block ${showSidebar}`}>
+                <Sidebar/>
+            </div>
+            { showCard && !open && <main className="flex flex-col items-center justify-center w-full h-screen overflow-y-hidden overflow-x-hidden dark:bg-black bg-gray-200 ">
+                {showNav && <MainNav />}
+                <Cardtinder/>
+            </main>}
             { open && <Conversation setOpen={setOpen} setSendMessage={setSendMessage} receiveMessage={receiveMessage} sendMessage={sendMessage} setReceiveMessage={setReceiverMessage} /> }
+            <footer className="bg-pink-500 h-20 md:hidden flex items-center justify-center overflow-y-hidden">
+
+            <div >
+              <button onClick={openSidebar}><IoMdMenu size={70} color="#660099"  /></button>
+            </div>
+          </footer>
         </div>
+        </SidebarProvider>
     )
 }

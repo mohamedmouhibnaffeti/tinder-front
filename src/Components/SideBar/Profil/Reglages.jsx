@@ -1,30 +1,51 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { List, ListItem} from "@material-tailwind/react";
-
+import { SidebarContext } from '../../../Context/SideBarContext';
 import { Divider } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
-export default function Reglages() {
+
+export default function Reglages({ email, phone }) {
+  const{t}=useTranslation()
+
+  const { setTinderComponentOpen, setProfileComponentOpen, setPreferredLanguageOpen, setEmailOpen, setLikesTabOpen, setPhoneOpen } = useContext(SidebarContext)
+  const handleLikesClick = () => {
+    setPreferredLanguageOpen(false)
+    setProfileComponentOpen(false)
+    setTinderComponentOpen(false)
+    setLikesTabOpen(false)
+    setEmailOpen(true)
+  }
+  const handlePhoneClick = () => {
+    setPreferredLanguageOpen(false)
+    setProfileComponentOpen(false)
+    setTinderComponentOpen(false)
+    setLikesTabOpen(false)
+    setEmailOpen(false)
+    setPhoneOpen(true)
+  }
+  const phoneNumber = phone ? phone : "None"
   return (
     <div>
-    <div className='cursor-default text-white opacity-50 font-bold ml-4 transform translate-y-10'>Account Settings</div>
-    <div className="mx-2 w-96 bg-[rgb(20,20,28)] transform translate-y-10">
-        <List className='text-white mt-9 '>
-          <a href="#" className="text-initial flex  ">
-            <ListItem className='  hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-white'>
-                <span  style={{ whiteSpace: 'nowrap' }} >Email</span>
+    <div className='ml-4 font-bold text-gray-900 dark:text-white transform translate-y-10 opacity-70 cursor-default'>Account Settings</div>
+    <div className="mx-2 w-96 bg-gray-300 dark:bg-[rgb(20,20,28)] transform translate-y-10">
+        <List className='text-gray-900 dark:text-white mt-9'>
+          <a href="#" className="flex text-initial ">
+            <ListItem className=' hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-gray-900 focus:text-gray-900 active:text-gray-900 dark:hover:text-white dark:focus:text-white dark:active:text-white' onClick={handleLikesClick}>
+                <span  style={{ whiteSpace: 'nowrap' }} >{t('email')}</span>
                 
-                  <p style={{ marginLeft: 'auto' }} className='text-white text-sm opacity-50 paragrapheLimite hover:text-red-400'>mouhamednaffeti77@gmail.com</p>
+                  <p style={{ marginLeft: 'auto' }} className='text-sm text-gray-900 dark:text-white opacity-50 paragrapheLimite hover:text-red-400'>{email}</p>
                   <svg style={{ marginLeft: 'auto' }}  xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right hover:stroke-[#f87171] active:stroke-[#f87171]"><path d="m9 18 6-6-6-6"/></svg>
                
             </ListItem>
           </a>
           <Divider color="#757575" className='w-90'/>
 
-          <a href="#" className="text-initial flex">
-            <ListItem className=' hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-white'>
-              <span  style={{ whiteSpace: 'nowrap' }}>Phone Number</span>
+          <a href="#" className="flex text-initial">
+            <ListItem className=' hover:bg-inherit active:bg-inherit focus:bg-inherit hover:text-gray-900 focus:text-gray-900 active:text-gray-900 dark:hover:text-white dark:focus:text-white dark:active:text-white' onClick={handlePhoneClick}>
+              <span  style={{ whiteSpace: 'nowrap' }}>{t('phone')}</span>
                
-                  <p style={{ marginLeft: 'auto' }} className='text-white text-sm opacity-50 paragrapheLimite hover:text-red-400 '>54697347</p>
+                  <p style={{ marginLeft: 'auto' }} className='text-sm text-gray-900 dark:text-white opacity-70 paragrapheLimite hover:text-red-400 '>{phoneNumber}</p>
                   <svg style={{ marginLeft: 'auto' }} xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right hover:stroke-[#f87171] active:stroke-[#f87171]"><path d="m9 18 6-6-6-6"/></svg>
                
             </ListItem>
@@ -33,9 +54,8 @@ export default function Reglages() {
         </List>
     </div>
     <div>
-    <p className='cursor-default text-white opacity-75 transform translate-y-24 ml-5'>
-      Verified Phone Number and Email help secure your account.
-    </p>
+    <p className='ml-5 text-gray-900 dark:text-white transform translate-y-24 opacity-75 cursor-default'>
+    {t('verifiedmailphone')}    </p>
     </div>
     </div>
   );

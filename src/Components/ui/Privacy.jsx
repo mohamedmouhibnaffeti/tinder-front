@@ -1,29 +1,34 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
+
 
 const Privacy = () => {
+
+    const{t}=useTranslation()
+
     return (
         <div className="text-black dark:text-white flex flex-wrap md:justify-center justify-between gap-10 -mt-4 bg-gray-50 border-gray-200 dark:bg-gray-800 w-11/12 mb-8 rounded-2xl mr-4 lg:w-8/12 border dark:border-gray-700">
             <div className="flex flex-col px-7 py-3 mb-8">
-                <h1 className="font-bold mb-2 text-xl">Legacy</h1>
-                <p className="hover:text-[#E91E63] cursor-pointer">privacy</p>
-                <p className="hover:text-[#E91E63] cursor-pointer">Terms</p>
-                <p className="hover:text-[#E91E63] cursor-pointer">Cookie Policy</p>
-                <p className="hover:text-[#E91E63] cursor-pointer">Intellectual Property</p>
+                <h1 className="font-bold mb-2 text-xl">{t('legacy')}</h1>
+                <p className="hover:text-[#E91E63] cursor-pointer">{t('privacy')}</p>
+                <p className="hover:text-[#E91E63] cursor-pointer">{t('terms')}</p>
+                <p className="hover:text-[#E91E63] cursor-pointer">{t('cookie')}</p>
+                <p className="hover:text-[#E91E63] cursor-pointer">{t('intellectual')}</p>
             </div>
             <div className="flex flex-col px-7 py-3 mb-8">
-                <h1 className="font-bold mb-2 text-xl">Carrers</h1>
-                <p className="hover:text-[#E91E63] cursor-pointer">Carrers Portal</p>
-                <p className="hover:text-[#E91E63] cursor-pointer">Tech Blog</p>
+                <h1 className="font-bold mb-2 text-xl">{t('carrers')}</h1>
+                <p className="hover:text-[#E91E63] cursor-pointer">{t('carrersportal')}</p>
+                <p className="hover:text-[#E91E63] cursor-pointer">{t('techblog')}</p>
             </div>
             <div className="flex flex-col px-7 py-3 mb-8">
-                <h1 className="font-bold mb-2 text-xl">About</h1>
-                <p className="hover:text-[#E91E63] cursor-pointer">FAQ</p>
-                <p className="hover:text-[#E91E63] cursor-pointer">Destinations</p>
-                <p className="hover:text-[#E91E63] cursor-pointer">Press Room</p>
-                <p className="hover:text-[#E91E63] cursor-pointer">Contact</p>
+                <h1 className="font-bold mb-2 text-xl">{t('about')}</h1>
+                <p className="hover:text-[#E91E63] cursor-pointer">{t('faq')}</p>
+                <p className="hover:text-[#E91E63] cursor-pointer">{t('destinations')}</p>
+                <p className="hover:text-[#E91E63] cursor-pointer">{t('pressroom')}</p>
+                <p className="hover:text-[#E91E63] cursor-pointer">{t('contact')}</p>
             </div>
             <div className="flex flex-col px-7 py-3 mb-8">
-                <h1 className="font-bold mb-2 text-xl">Social</h1>
+                <h1 className="font-bold mb-2 text-xl">{t('social')}</h1>
                 <div className="flex md:gap-4 gap-2 items-center">
                     <svg className="hover:text-[#E91E63] cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
                     <svg className="hover:text-[#E91E63] cursor-pointer"  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
