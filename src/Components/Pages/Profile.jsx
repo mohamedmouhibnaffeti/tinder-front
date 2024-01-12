@@ -139,15 +139,15 @@ export default function Profile(){
                         <div className=" flex flex-col gap-2 md:self-start md:pl-44 lg:pl-0">
                             <p className="dark:text-white font-semibold text-lg self-start">&nbsp; {t('gender')} </p>
                             <div className="flex gap-5 ">
-                                <button className={`dark:text-gray-100 border ${data.gender === 'Male' ? ' dark:btn-light btn-dark' : 'dark:bg-slate-400  dark:border-white bg-gray-200 border-gray-300'} py-2 px-8 rounded-3xl md:w-44 w-32 transition delay-200 hover:scale-105 `} onClick={()=>onChangeHandler("gender", "Male")} > {t('male')} </button>
-                                <button className={`dark:text-gray-100 border ${data.gender === 'Female' ? 'dark:btn-light btn-dark' : 'dark:bg-slate-600 dark:border-white bg-gray-200 border-gray-300'} py-2 px-8 rounded-3xl md:w-44 w-32 transition delay-200 hover:scale-105`} onClick={()=>onChangeHandler("gender", "Female")} > {t('female')}</button>
+                                <button className={`dark:text-gray-100 border ${data.gender === 'Male' ? ' dark:btn-light btn-dark' : 'dark:bg-blue-gray-400  dark:border-white bg-gray-200 border-gray-300'} py-2 px-8 rounded-3xl md:w-44 w-32 transition delay-200 hover:scale-105 `} onClick={()=>onChangeHandler("gender", "Male")} > {t('male')} </button>
+                                <button className={`dark:text-gray-100 border ${data.gender === 'Female' ? 'dark:btn-light btn-dark' : 'dark:bg-blue-gray-400 dark:border-white bg-gray-200 border-gray-300'} py-2 px-8 rounded-3xl md:w-44 w-32 transition delay-200 hover:scale-105`} onClick={()=>onChangeHandler("gender", "Female")} > {t('female')}</button>
                             </div>
                         </div>
                         <div className=" flex flex-col gap-2 md:self-start md:pl-44 lg:pl-0">
                             <p className="dark:text-white font-semibold text-lg self-start">&nbsp; {t('showme')} </p>
                             <div className="flex gap-5 ">
-                                <button className={`dark:text-gray-100 border ${data.showme === 'Male' ? 'dark:btn-light btn-dark' : 'dark:bg-slate-600 dark:border-white bg-gray-200 border-gray-300'} py-2 px-8 rounded-3xl md:w-44 w-32 transition delay-200 hover:scale-105`} onClick={()=>onChangeHandler("showme", "Male")} > {t('males')} </button>
-                                <button className={`dark:text-gray-100 border ${data.showme === 'Female' ? 'dark:btn-light btn-dark' : 'dark:bg-slate-600 dark:border-white bg-gray-200 border-gray-300'} py-2 px-8 rounded-3xl md:w-44 w-32 transition delay-200 hover:scale-105`} onClick={()=>onChangeHandler("showme", "Female")} > {t('females')}  </button>
+                                <button className={`dark:text-gray-100 border ${data.showme === 'Male' ? 'dark:btn-light btn-dark' : 'dark:bg-blue-gray-400 dark:border-white bg-gray-200 border-gray-300'} py-2 px-8 rounded-3xl md:w-44 w-32 transition delay-200 hover:scale-105`} onClick={()=>onChangeHandler("showme", "Male")} > {t('males')} </button>
+                                <button className={`dark:text-gray-100 border ${data.showme === 'Female' ? 'dark:btn-light btn-dark' : 'dark:bg-blue-gray-400 dark:border-white bg-gray-200 border-gray-300'} py-2 px-8 rounded-3xl md:w-44 w-32 transition delay-200 hover:scale-105`} onClick={()=>onChangeHandler("showme", "Female")} > {t('females')}  </button>
                             </div>
                         </div>
                         <div className=" flex flex-col gap-2">
